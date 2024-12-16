@@ -19,12 +19,14 @@
  *   getStringLength(null) => 0
  *   getStringLength(undefined) => 0
  */
-function getStringLength(/* value */) {
-  throw new Error('Not implemented');
+function getStringLength(value) {
+  return value.length;
 }
 
+// getStringFromTemplate('hello');
 /**
- * Returns true if the value is a string, otherwise returns false.
+ * Returns true if the value is a string, otherwise returns false. / Возвращает true, если значение является строкой, в противном случае возвращает false.
+
  *
  * @param {string} value - The value to check if it's a string.
  * @return {boolean} - True if the value is a string, false otherwise.
@@ -37,12 +39,17 @@ function getStringLength(/* value */) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function isString(/* value */) {
-  throw new Error('Not implemented');
+function isString(value) {
+  if (typeof value === 'string') {
+    return true;
+  }
+  return false;
 }
 
+isString();
+
 /**
- * Returns the result of concatenation of two strings.
+ * Returns the result of concatenation of two strings. / Возвращает результат объединения двух строк.
  *
  * @param {string} value1 - The first string to concatenate.
  * @param {string} value2 - The second string to concatenate.
@@ -53,12 +60,14 @@ function isString(/* value */) {
  *   concatenateStrings('aa', '') => 'aa'.
  *   concatenateStrings('', 'bb') => 'bb'
  */
-function concatenateStrings(/* value1, value2 */) {
-  throw new Error('Not implemented');
+function concatenateStrings(a, b) {
+  return a + b;
 }
 
+concatenateStrings('ab', 'cd');
+
 /**
- * Returns the first character of the given string.
+ * Returns the first character of the given string. / Возвращает первый символ заданной строки.
  *
  * @param {string} value - The input string to extract the first character from.
  * @return {string} - The first character of the string.
@@ -68,12 +77,16 @@ function concatenateStrings(/* value1, value2 */) {
  *   getFirstChar('cat') => 'c'
  *   getFirstChar('') => ''
  */
-function getFirstChar(/* value */) {
-  throw new Error('Not implemented');
+function getFirstChar(value) {
+  return value[0];
 }
 
+getFirstChar('go');
+
 /**
- * Removes leading and trailing whitespace characters from the string.
+ * Removes leading and trailing whitespace characters from the string. 
+ * Удаляет начальные и конечные пробелы из строки.
+
  *
  * @param {string} value - The input string to remove leading and trailing whitespaces from.
  * @return {string} - The string with leading and trailing whitespaces removed.
@@ -83,12 +96,15 @@ function getFirstChar(/* value */) {
  *   removeLeadingAndTrailingWhitespaces('cat ') => 'cat'
  *   removeLeadingAndTrailingWhitespaces('\t\t\tHello, World! ') => 'Hello, World!'
  */
-function removeLeadingAndTrailingWhitespaces(/* value */) {
-  throw new Error('Not implemented');
+function removeLeadingAndTrailingWhitespaces(value) {
+  return value.trim();
 }
+
+removeLeadingAndTrailingWhitespaces(' new year     ');
 
 /**
  * Removes only leading whitespace characters from the string.
+ * Удаляет из строки только ведущие пробельные символы.
  *
  * @param {string} value - The input string to remove leading whitespaces from.
  * @return {string} - The string with leading whitespaces removed.
@@ -98,9 +114,10 @@ function removeLeadingAndTrailingWhitespaces(/* value */) {
  *   removeLeadingWhitespaces('cat ') => 'cat '
  *   removeLeadingWhitespaces('\t\t\tHello, World! ') => 'Hello, World! '
  */
-function removeLeadingWhitespaces(/* value */) {
-  throw new Error('Not implemented');
+function removeLeadingWhitespaces(value) {
+  return value.trimStart();
 }
+removeLeadingWhitespaces('  good');
 
 /**
  * Removes only trailing whitespace characters from the string.
@@ -113,9 +130,11 @@ function removeLeadingWhitespaces(/* value */) {
  *   removeTrailingWhitespaces('cat ') => 'cat'
  *   removeTrailingWhitespaces('\t\t\tHello, World! ') => '\t\t\tHello, World!'
  */
-function removeTrailingWhitespaces(/* value */) {
-  throw new Error('Not implemented');
+function removeTrailingWhitespaces(value) {
+  return value.trimEnd();
 }
+
+removeTrailingWhitespaces(' cat  ');
 
 /**
  * Returns a string that is repeated the specified number of times.
@@ -130,12 +149,17 @@ function removeTrailingWhitespaces(/* value */) {
  *   repeatString('', 3) => ''
  *   repeatString('abc', -2) => ''
  */
-function repeatString(/* str, times */) {
-  throw new Error('Not implemented');
+function repeatString(str, times) {
+  // times.repeat();
+  return str.repeat(times);
 }
+
+repeatString('o', 6);
 
 /**
  * Remove the first occurrence of a substring from a string.
+ * Удалить первое вхождение подстроки из строки.
+
  *
  * @param {string} str - The input string.
  * @param {string} value - The substring to remove from the string.
@@ -146,9 +170,12 @@ function repeatString(/* str, times */) {
  *   removeFirstOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeFirstOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeFirstOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeFirstOccurrences(str, value) {
+  const result = str.replace(value, '');
+  return result;
 }
+
+removeFirstOccurrences('To be or not to be', 'be');
 
 /**
  * Remove the last occurrence of a substring from a string.
